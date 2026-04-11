@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #10b981;
+  --color-brand-dark: #059669;
+  --color-brand-light: #d1fae5;
+  --color-dark: #0f1724;
+  --color-dark-light: #1a2332;
+  --color-dark-lighter: #243044;
+}
+
+* {
+  @apply transition-colors;
+}
+
+/* Hero Pattern */
+.hero-pattern {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(16, 185, 129, 0.15) 1px,
+    transparent 0
+  );
+  background-size: 40px 40px;
+}
+
+/* Modern gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.gradient-primary-soft {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+}
+
+.gradient-to-br {
+  background: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+
+/* Enhanced Glassmorphism Effects */
+.glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 36, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-sm {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 36, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #10b981 0%, #059669 100%);
+  border-radius: 5px;
+  border: 2px solid rgba(15, 23, 36, 0.05);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #059669 0%, #047857 100%);
+}
+
+/* Custom selection */
+::selection {
+  background-color: rgba(16, 185, 129, 0.3);
+  color: inherit;
+}
+
+::-moz-selection {
+  background-color: rgba(16, 185, 129, 0.3);
+  color: inherit;
+}
+
+/* Smooth transitions */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Active link styles */
+.nav-link {
+  @apply relative text-gray-700 hover:text-emerald-600 transition-colors;
+}
+
+.nav-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-500 transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link.active::after {
+  @apply w-full;
+}
+
+/* Button effects */
+.btn-primary {
+  @apply bg-linear-to-r from-emerald-500 to-teal-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-emerald-600 transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/50 active:scale-95 text-sm;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-900 font-semibold py-3 px-6 rounded-lg hover:bg-gray-200 transition-all duration-300 active:scale-95 text-sm;
+}
+
+.btn-outline {
+  @apply border-2 border-emerald-500 text-emerald-600 font-bold py-2.5 px-5 rounded-lg hover:bg-emerald-50 transition-all duration-300 active:scale-95 text-sm;
+}
+
+/* Card effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:scale-105;
+}
+
+.card-base {
+  @apply bg-white/80 backdrop-blur-xl rounded-3xl border border-white/30 shadow-lg;
+}
+
+.card-glass {
+  @apply bg-white/60 backdrop-blur-2xl rounded-3xl border border-white/40 shadow-xl hover:bg-white/80 hover:shadow-2xl transition-all duration-300;
+}
+
+/* Badge style */
+.badge-primary {
+  @apply inline-flex items-center gap-2 bg-linear-to-r from-emerald-100 to-emerald-200 text-emerald-700 px-3 py-1.5 rounded-full text-xs font-semibold shadow-md;
+}
+
+.badge-secondary {
+  @apply inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold shadow-md;
+}
+
+/* Feature card with gradient */
+.feature-card {
+  @apply p-6 rounded-lg bg-white/80 backdrop-blur-xl border border-white/30 shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-emerald-200/50 hover:bg-white/90;
+}
+
+/* Stats counter */
+.stat-item {
+  @apply flex flex-col items-center gap-2;
+}
+
+.stat-number {
+  @apply text-3xl font-bold text-emerald-600;
+}
+
+.stat-label {
+  @apply text-gray-600 text-sm font-semibold;
+}
+
+/* Input focus effect */
+input:focus,
+textarea:focus,
+select:focus {
+  @apply outline-none ring-2 ring-emerald-500 ring-offset-2;
+}
+
+/* Loading skeleton */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    to right,
+    #f1f5f9 0%,
+    #e2e8f0 50%,
+    #f1f5f9 100%
+  );
+  background-size: 1000px 100%;
+}
+
+/* Floating animation for hero elements */
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Fade in animation for page loads */
+.fade-in-animation {
+  animation: fade-in 0.7s ease-out;
+}
+
+/* Slide up animation */
+.slide-up-animation {
+  animation: slide-up 0.5s ease-out;
+}
+
+/* Glassmorphic hover effect */
+.glassmorphic-hover {
+  @apply transition-all duration-300 hover:bg-white/70 hover:backdrop-blur-2xl hover:shadow-2xl;
+}
+
+/* Enhanced text shadow */
+.text-gradient {
+  @apply text-transparent bg-clip-text bg-linear-to-r from-emerald-500 via-emerald-600 to-teal-600;
+}
