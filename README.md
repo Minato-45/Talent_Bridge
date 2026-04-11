@@ -106,15 +106,7 @@ npm run dev
 
 See [SECURITY_CHECKLIST.md](./SECURITY_CHECKLIST.md) for detailed security information.
 
-## 📝 Default Credentials
-
-For development/testing:
-
-- **Email**: rambabu23524@gmail.com
-- **Password**: Bhargav@45
-- **Role**: jobseeker or recruiter
-
-## 📚 Documentation
+##  Documentation
 
 - [Security Checklist](./SECURITY_CHECKLIST.md) - Security implementation details
 - [Server Security](./server/SECURITY.md) - Backend security guide
