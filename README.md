@@ -26,6 +26,7 @@ A modern full-stack job listing platform built with React, Node.js, and MongoDB.
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - React 19.1.0
 - Vite 6.4.1
 - Tailwind CSS
@@ -33,6 +34,7 @@ A modern full-stack job listing platform built with React, Node.js, and MongoDB.
 - Axios
 
 ### Backend
+
 - Node.js
 - Express.js
 - MongoDB
@@ -40,6 +42,7 @@ A modern full-stack job listing platform built with React, Node.js, and MongoDB.
 - Bcryptjs
 
 ### Database
+
 - MongoDB (Local development)
 - MongoDB Atlas (Production)
 
@@ -52,13 +55,16 @@ A modern full-stack job listing platform built with React, Node.js, and MongoDB.
 
 ### Setup
 
+
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/Minato-45/Talent_Bridge.git
    cd Talent_Bridge
    ```
 
 2. **Backend Setup**
+
    ```bash
    cd server
    npm install
@@ -68,6 +74,7 @@ A modern full-stack job listing platform built with React, Node.js, and MongoDB.
    ```
 
 3. **Frontend Setup**
+
    ```bash
    cd client
    npm install
@@ -76,13 +83,15 @@ A modern full-stack job listing platform built with React, Node.js, and MongoDB.
 
 ## 🚀 Running the Application
 
-**Backend** (runs on http://localhost:5000)
+**Backend** (runs on [http://localhost:5000](http://localhost:5000))
+
 ```bash
 cd server
 npm start
 ```
 
-**Frontend** (runs on http://localhost:5173)
+**Frontend** (runs on [http://localhost:5173](http://localhost:5173))
+
 ```bash
 cd client
 npm run dev
@@ -100,6 +109,7 @@ See [SECURITY_CHECKLIST.md](./SECURITY_CHECKLIST.md) for detailed security infor
 ## 📝 Default Credentials
 
 For development/testing:
+
 - **Email**: rambabu23524@gmail.com
 - **Password**: Bhargav@45
 - **Role**: jobseeker or recruiter
@@ -123,7 +133,7 @@ See [SECURITY_CHECKLIST.md](./SECURITY_CHECKLIST.md) for production deployment c
 
 ## 📄 Project Structure
 
-```
+```text
 Talent_Bridge/
 ├── client/                 # React frontend
 │   ├── src/
@@ -149,6 +159,7 @@ Talent_Bridge/
 ## 🤝 Contributing
 
 Contributions are welcome! Please ensure:
+
 - Code follows project conventions
 - No sensitive data is committed
 - All `.env` files are excluded from git
@@ -157,6 +168,7 @@ Contributions are welcome! Please ensure:
 ## 📞 Support
 
 For issues or questions, please check:
+
 - [SECURITY_CHECKLIST.md](./SECURITY_CHECKLIST.md)
 - [Server Security Guide](./server/SECURITY.md)
 
