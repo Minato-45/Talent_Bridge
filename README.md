@@ -49,12 +49,12 @@ A modern full-stack job listing platform built with React, Node.js, and MongoDB.
 ## 📦 Installation
 
 ### Prerequisites
+
 - Node.js (v16+)
 - MongoDB (local or Atlas)
 - npm
 
 ### Setup
-
 
 1. **Clone the repository**
 
@@ -106,7 +106,7 @@ npm run dev
 
 See [SECURITY_CHECKLIST.md](./SECURITY_CHECKLIST.md) for detailed security information.
 
-##  Documentation
+## 📚 Documentation
 
 - [Security Checklist](./SECURITY_CHECKLIST.md) - Security implementation details
 - [Server Security](./server/SECURITY.md) - Backend security guide
