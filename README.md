@@ -115,6 +115,7 @@ See [SECURITY_CHECKLIST.md](./SECURITY_CHECKLIST.md) for detailed security infor
 ## 🚢 Deployment
 
 For production deployment, ensure:
+
 - MongoDB Atlas setup with proper authentication
 - HTTPS/TLS enabled
 - Environment variables properly configured
