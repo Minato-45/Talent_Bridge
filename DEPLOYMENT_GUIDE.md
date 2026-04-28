@@ -46,7 +46,7 @@ Database (MongoDB) → MongoDB Atlas
    - Choose "Connect with the MongoDB shell" or "Drivers"
    - Copy the connection string
    - Replace `<username>` and `<password>` with your credentials
-   - Example: `mongodb+srv://portal_user:PASSWORD@cluster.mongodb.net/job_listing_portal?retryWrites=true&w=majority`
+   - Example: `mongodb+srv://<YOUR_USERNAME>:<YOUR_PASSWORD>@<YOUR_CLUSTER>.mongodb.net/job_listing_portal?retryWrites=true&w=majority`
 
 ### Step 2: Deploy Backend to Render
 

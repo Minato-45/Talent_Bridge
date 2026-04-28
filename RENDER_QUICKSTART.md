@@ -21,7 +21,7 @@
 **Your connection string should look like:**
 
 ```bash
-mongodb+srv://portal_user:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/job_listing_portal?retryWrites=true&w=majority
+mongodb+srv://<YOUR_USERNAME>:<YOUR_PASSWORD>@<YOUR_CLUSTER>.xxxxx.mongodb.net/job_listing_portal?retryWrites=true&w=majority
 ```
 
 ---
