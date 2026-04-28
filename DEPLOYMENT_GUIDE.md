@@ -113,7 +113,6 @@ Database (MongoDB) → MongoDB Atlas
 
 ### Option B: Use Cloudinary (Easier)
 
-
 - Sign up at [cloudinary.com](https://cloudinary.com)
 - Get API credentials
 - Update upload middleware to use Cloudinary
