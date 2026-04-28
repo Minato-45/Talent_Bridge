@@ -1,6 +1,7 @@
 # 🚀 Quick Deploy to Render - 10 Minutes
 
 ## Prerequisites
+
 - GitHub account with your code pushed
 - MongoDB Atlas free tier account
 
@@ -18,7 +19,8 @@
    - Replace `<username>:<password>` with your credentials
 
 **Your connection string should look like:**
-```
+
+```bash
 mongodb+srv://portal_user:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/job_listing_portal?retryWrites=true&w=majority
 ```
 
@@ -39,7 +41,7 @@ mongodb+srv://portal_user:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/job_listing_p
 5. Go to **Environment** tab and add these variables:
 
 | Key | Value |
-|---|---|
+| --- | --- |
 | `NODE_ENV` | `production` |
 | `PORT` | `10000` |
 | `MONGODB_URI` | _(paste your MongoDB Atlas connection string)_ |
@@ -63,14 +65,15 @@ mongodb+srv://portal_user:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/job_listing_p
 4. Also update Render's `CLIENT_URL` to your Netlify domain (e.g., `https://your-site.netlify.app`)
 
 5. Redeploy frontend:
-   ```powershell
+
+```powershell
    cd client
    netlify deploy --prod
    ```
 
 ---
 
-## ✅ Test It!
+## ✅ Test It
 
 1. Visit your Netlify frontend
 2. Try to **Register** and **Login**
@@ -91,7 +94,7 @@ mongodb+srv://portal_user:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/job_listing_p
 ## 🆘 Troubleshooting
 
 | Error | Fix |
-|---|---|
+| --- | --- |
 | CORS error | Update `CLIENT_URL` in Render env vars |
 | Cannot connect to MongoDB | Check connection string, verify IP whitelist in Atlas |
 | 502 Bad Gateway | Check Render logs, likely build or startup error |
