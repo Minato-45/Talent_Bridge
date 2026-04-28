@@ -120,7 +120,7 @@ app.use("/api/admin", generalLimiter, adminRoutes);
 
 // Root route
 app.get("/", (req, res) => {
-  res.json({ 
+  res.json({
     message: "🚀 Talent Bridge API Server",
     version: "1.0.0",
     status: "running",
@@ -131,8 +131,8 @@ app.get("/", (req, res) => {
       applications: "/api/applications",
       profile: "/api/profile",
       admin: "/api/admin",
-      health: "/api/health"
-    }
+      health: "/api/health",
+    },
   });
 });
 
@@ -158,8 +158,10 @@ app.use("/api/admin", generalLimiter, adminRoutes);
 // 404 handler - MUST be after all routes
 app.use((req, res) => {
   console.log("❌ 404 NOT FOUND:", req.method, req.path);
-  console.log("Available routes: /api/auth, /api/jobs, /api/applications, /api/profile, /api/admin");
-  res.status(404).json({ 
+  console.log(
+    "Available routes: /api/auth, /api/jobs, /api/applications, /api/profile, /api/admin",
+  );
+  res.status(404).json({
     message: "Route not found",
     path: req.path,
     method: req.method,
