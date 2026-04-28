@@ -4,6 +4,13 @@
 .env.*.local
 .env.production.local
 
+# But DO commit client/.env and client/.env.production (no secrets)
+!client/.env
+!client/.env.production
+
+# Security: Always ignore server/.env (contains secrets)
+server/.env
+
 # Node modules
 node_modules/
 npm-debug.log*
