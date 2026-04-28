@@ -4,7 +4,7 @@ This guide covers deploying the full-stack MERN application across multiple plat
 
 ## Architecture Overview
 
-```
+```bash
 Frontend (React/Vite) → Netlify
 Backend (Node.js/Express) → Render
 Database (MongoDB) → MongoDB Atlas
@@ -81,7 +81,7 @@ Database (MongoDB) → MongoDB Atlas
    - Add these variables:
 
    | Key | Value | Notes |
-   |---|---|---|
+   | --- | --- | --- |
    | `NODE_ENV` | `production` | Required |
    | `PORT` | `10000` | Render default |
    | `MONGODB_URI` | Your MongoDB Atlas connection string | From Step 1.5 |
@@ -104,12 +104,16 @@ Database (MongoDB) → MongoDB Atlas
 
 **Important**: Render doesn't persist files across deployments. For production uploads, use cloud storage:
 
+
 **Option A: Use AWS S3 (Recommended)**
+
 - Store user resumes and company logos in S3
 - Update multer middleware to upload to S3
 - [S3 Setup Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started-browser.html)
 
 **Option B: Use Cloudinary (Easier)**
+
+
 - Sign up at [cloudinary.com](https://cloudinary.com)
 - Get API credentials
 - Update upload middleware to use Cloudinary
@@ -130,6 +134,7 @@ Database (MongoDB) → MongoDB Atlas
 ### Deploy Frontend
 
 1. **Update API URL**
+
    - In Netlify dashboard for your site
    - Go to **Site settings** → **Build & deploy** → **Environment**
    - Set `VITE_API_BASE_URL` to your Render backend URL:
@@ -138,14 +143,17 @@ Database (MongoDB) → MongoDB Atlas
      ```
 
 2. **Trigger deployment**
+
    - Redeploy the site:
+
      ```powershell
      cd client
      npm run build
      netlify deploy --prod
      ```
 
-3. **Test connection**
+1. **Test connection**
+
    - Visit your Netlify site
    - Try to log in or load a job
    - Check browser console (F12) for API errors
@@ -156,19 +164,25 @@ Database (MongoDB) → MongoDB Atlas
 ## Part 3: Verification Checklist
 
 ### Backend Health Check
-```
+
+```bash
 GET https://job-listing-portal-api.onrender.com/api/health
 ```
+
 Should return: `{ "status": "ok", "timestamp": "..." }`
 
 ### Test API Connection
+
+
 1. Open your Netlify frontend
-2. Go to Network tab (F12 DevTools)
-3. Attempt login
-4. Verify API calls go to correct backend URL
-5. Check for CORS errors
+1. Go to Network tab (F12 DevTools)
+1. Attempt login
+1. Verify API calls go to correct backend URL
+1. Check for CORS errors
 
 ### Database Check
+
+
 - MongoDB Atlas Dashboard → Collections
 - Verify data is being saved (users, jobs, applications)
 
@@ -176,30 +190,32 @@ Should return: `{ "status": "ok", "timestamp": "..." }`
 
 ## Common Issues & Fixes
 
-### ❌ "CORS Error: Origin not allowed"
-**Fix**: Update `CLIENT_URL` in Render environment to match your Netlify domain
+### ❌ CORS Error: Origin not allowed
 
-### ❌ "MongooseError: Cannot connect to MongoDB"
-**Fix**: 
+- Update `CLIENT_URL` in Render environment to match your Netlify domain
+
+### ❌ MongooseError: Cannot connect to MongoDB
+
 - Verify MongoDB Atlas connection string is correct
 - Check IP whitelist (MongoDB Atlas → Network Access)
 - Add `0.0.0.0/0` to allow Render
 
-### ❌ "Cannot find module" errors
-**Fix**: 
+### ❌ Cannot find module errors
+
 - Render log shows missing package?
 - Run: `npm install` locally first
 - Commit `package-lock.json` to GitHub
 - Redeploy on Render
 
-### ❌ "API calls work locally but fail on production"
-**Fix**: 
+### ❌ API calls work locally but fail on production
+
 - Check `VITE_API_BASE_URL` is set in Netlify env vars
 - Redeploy frontend after updating env vars
 - Clear browser cache
 
-### ❌ "Render app keeps going to sleep"
-**Note**: Free tier auto-sleeps after 15 min. Upgrade to paid plan to keep always-on.
+### ❌ Render app keeps going to sleep
+
+- Free tier auto-sleeps after 15 min. Upgrade to paid plan to keep always-on.
 
 ---
 
@@ -208,6 +224,7 @@ Should return: `{ "status": "ok", "timestamp": "..." }`
 - [ ] MongoDB Atlas cluster created and running
 - [ ] Backend deployed to Render with all env vars set
 - [ ] Frontend deployed to Netlify
+
 - [ ] `VITE_API_BASE_URL` points to Render backend
 - [ ] `CLIENT_URL` in Render points to Netlify frontend
 - [ ] CORS enabled correctly
