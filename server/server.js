@@ -118,6 +118,24 @@ app.use("/api/applications", generalLimiter, applicationRoutes);
 app.use("/api/profile", generalLimiter, profileRoutes);
 app.use("/api/admin", generalLimiter, adminRoutes);
 
+// Root route
+app.get("/", (req, res) => {
+  res.json({ 
+    message: "🚀 Talent Bridge API Server",
+    version: "1.0.0",
+    status: "running",
+    timestamp: new Date().toISOString(),
+    availableRoutes: {
+      auth: "/api/auth",
+      jobs: "/api/jobs",
+      applications: "/api/applications",
+      profile: "/api/profile",
+      admin: "/api/admin",
+      health: "/api/health"
+    }
+  });
+});
+
 // Health check
 app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
