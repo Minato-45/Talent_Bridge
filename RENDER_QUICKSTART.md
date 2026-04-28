@@ -10,11 +10,11 @@
 ## Step 1: MongoDB Atlas Setup (3 minutes)
 
 1. Go to [mongodb.com/cloud/atlas](https://mongodb.com/cloud/atlas) → Sign up
-2. Create cluster → Choose "M0 Free" → Select region
-3. Wait for initialization
-4. **Database Access** → Add user (save password!)
-5. **Databases** → Create database: `job_listing_portal`
-6. **Connect** → Get connection string
+1. Create cluster → Choose "M0 Free" → Select region
+1. Wait for initialization
+1. **Database Access** → Add user (save password!)
+1. **Databases** → Create database: `job_listing_portal`
+1. **Connect** → Get connection string
    - Copy the `mongodb+srv://...` URL
    - Replace `<username>:<password>` with your credentials
 
@@ -29,16 +29,16 @@ mongodb+srv://portal_user:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/job_listing_p
 ## Step 2: Deploy to Render (5 minutes)
 
 1. Go to [render.com](https://render.com) → Sign up with GitHub
-2. Click **"+ New"** → **"Web Service"**
-3. Select your `job-listing-portal` repository
-4. Fill in:
+1. Click **"+ New"** → **"Web Service"**
+1. Select your `job-listing-portal` repository
+1. Fill in:
    - **Name**: `job-listing-portal-api`
    - **Root Directory**: `server`
    - **Build Command**: `npm install`
    - **Start Command**: `npm start`
    - **Plan**: Free
 
-5. Go to **Environment** tab and add these variables:
+1. Go to **Environment** tab and add these variables:
 
 | Key | Value |
 | --- | --- |
@@ -48,7 +48,7 @@ mongodb+srv://portal_user:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/job_listing_p
 | `JWT_SECRET` | _(generate: `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`)_ |
 | `CLIENT_URL` | _(your Netlify frontend URL, add later)_ |
 
-6. Click **"Create Web Service"** → Wait 2-3 minutes
+1. Click **"Create Web Service"** → Wait 2-3 minutes
 
 **When done**, you'll see your backend URL: `https://job-listing-portal-api.onrender.com` ✅
 
@@ -57,14 +57,14 @@ mongodb+srv://portal_user:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/job_listing_p
 ## Step 3: Update Frontend (2 minutes)
 
 1. In **Netlify dashboard** for your site
-2. Go to **Site settings** → **Build & deploy** → **Environment**
-3. Add variable:
+1. Go to **Site settings** → **Build & deploy** → **Environment**
+1. Add variable:
    - **Key**: `VITE_API_BASE_URL`
-   - **Value**: `https://job-listing-portal-api.onrender.com/api`
+   - **Value**: `https://job-linking-portal-api.onrender.com/api`
 
-4. Also update Render's `CLIENT_URL` to your Netlify domain (e.g., `https://your-site.netlify.app`)
+1. Also update Render's `CLIENT_URL` to your Netlify domain (e.g., `https://your-site.netlify.app`)
 
-5. Redeploy frontend:
+1. Redeploy frontend:
 
 ```powershell
    cd client
@@ -76,9 +76,9 @@ mongodb+srv://portal_user:YOUR_PASSWORD@cluster0.xxxxx.mongodb.net/job_listing_p
 ## ✅ Test It
 
 1. Visit your Netlify frontend
-2. Try to **Register** and **Login**
-3. If it works → **🎉 You're live!**
-4. If it fails → Check console errors (F12)
+1. Try to **Register** and **Login**
+1. If it works → **🎉 You're live!**
+1. If it fails → Check console errors (F12)
 
 ---
 
