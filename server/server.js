@@ -123,10 +123,33 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
-// Error handler
-app.use(errorHandler);
+// Debug: Log all incoming requests
+app.use((req, res, next) => {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
+  console.log("CORS Origin:", req.get("origin"));
+  next();
+});
 
-// MongoDB connection
+// Routes
+app.use("/api/auth", authLimiter, authRoutes);
+app.use("/api/jobs", generalLimiter, jobRoutes);
+app.use("/api/applications", generalLimiter, applicationRoutes);
+app.use("/api/profile", generalLimiter, profileRoutes);
+app.use("/api/admin", generalLimiter, adminRoutes);
+
+// 404 handler - MUST be after all routes
+app.use((req, res) => {
+  console.log("❌ 404 NOT FOUND:", req.method, req.path);
+  console.log("Available routes: /api/auth, /api/jobs, /api/applications, /api/profile, /api/admin");
+  res.status(404).json({ 
+    message: "Route not found",
+    path: req.path,
+    method: req.method,
+  });
+});
+
+// Error handler - MUST be last
+app.use(errorHandler);
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI);

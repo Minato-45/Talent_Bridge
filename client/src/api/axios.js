@@ -1,7 +1,17 @@
 import axios from "axios";
 
+// Debug: Log the API URL
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "/api";
+console.log("🔧 API Base URL:", API_BASE_URL);
+console.log("🔧 Environment:", import.meta.env.MODE);
+console.log("🔧 All ENV vars:", import.meta.env);
+
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "/api",
+  baseURL: API_BASE_URL,
+  timeout: 10000, // 10 second timeout
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 API.interceptors.request.use((config) => {
@@ -9,12 +19,27 @@ API.interceptors.request.use((config) => {
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+  console.log("📤 Request:", config.method.toUpperCase(), config.url);
   return config;
+}, (error) => {
+  console.error("❌ Request error:", error);
+  return Promise.reject(error);
 });
 
 API.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    console.log("✅ Response:", response.status, response.config.url);
+    return response;
+  },
   (error) => {
+    console.error("❌ Response error:", {
+      message: error.message,
+      status: error.response?.status,
+      data: error.response?.data,
+      url: error.config?.url,
+      baseURL: error.config?.baseURL,
+    });
+
     if (error.response?.status === 401) {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
