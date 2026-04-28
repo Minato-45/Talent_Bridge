@@ -141,6 +141,11 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
+// Favicon handler - prevent 404 errors
+app.get("/favicon.ico", (req, res) => {
+  res.status(204).end();
+});
+
 // Debug: Log all incoming requests
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
