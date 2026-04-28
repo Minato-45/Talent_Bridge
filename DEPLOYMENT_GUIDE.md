@@ -56,6 +56,7 @@ Database (MongoDB) → MongoDB Atlas
    - Link your GitHub account
 
 2. **Push backend to GitHub**
+
    ```powershell
    cd c:\Users\ramba\Downloads\Job_Listing_Portal
    git add .
@@ -104,14 +105,13 @@ Database (MongoDB) → MongoDB Atlas
 
 **Important**: Render doesn't persist files across deployments. For production uploads, use cloud storage:
 
-
-**Option A: Use AWS S3 (Recommended)**
+### Option A: Use AWS S3 (Recommended)
 
 - Store user resumes and company logos in S3
 - Update multer middleware to upload to S3
 - [S3 Setup Guide](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/getting-started-browser.html)
 
-**Option B: Use Cloudinary (Easier)**
+### Option B: Use Cloudinary (Easier)
 
 
 - Sign up at [cloudinary.com](https://cloudinary.com)
@@ -126,6 +126,7 @@ Database (MongoDB) → MongoDB Atlas
 ## Part 2: Frontend Setup (Netlify)
 
 ### Already Completed ✅
+
 - Vite config optimized
 - `.env.example` created
 - `netlify.toml` configured
@@ -138,7 +139,8 @@ Database (MongoDB) → MongoDB Atlas
    - In Netlify dashboard for your site
    - Go to **Site settings** → **Build & deploy** → **Environment**
    - Set `VITE_API_BASE_URL` to your Render backend URL:
-     ```
+
+     ```bash
      https://job-listing-portal-api.onrender.com/api
      ```
 
@@ -152,7 +154,7 @@ Database (MongoDB) → MongoDB Atlas
      netlify deploy --prod
      ```
 
-1. **Test connection**
+3. **Test connection**
 
    - Visit your Netlify site
    - Try to log in or load a job
@@ -173,7 +175,6 @@ Should return: `{ "status": "ok", "timestamp": "..." }`
 
 ### Test API Connection
 
-
 1. Open your Netlify frontend
 1. Go to Network tab (F12 DevTools)
 1. Attempt login
@@ -181,7 +182,6 @@ Should return: `{ "status": "ok", "timestamp": "..." }`
 1. Check for CORS errors
 
 ### Database Check
-
 
 - MongoDB Atlas Dashboard → Collections
 - Verify data is being saved (users, jobs, applications)
